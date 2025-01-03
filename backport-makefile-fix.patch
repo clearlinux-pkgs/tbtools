@@ -1,0 +1,28 @@
+From ff5b3f3d71bdab4a22daef522ea1802ba7bbfe5a Mon Sep 17 00:00:00 2001
+From: William Douglas <william.douglas@intel.com>
+Date: Fri, 3 Jan 2025 14:01:09 -0800
+Subject: [PATCH] Create the bash completions directory
+
+When installing first create the bash completions directory before
+installing the completion file.
+
+Signed-off-by: William Douglas <william.douglas@intel.com>
+---
+ Makefile | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/Makefile b/Makefile
+index 617bf06..c31870d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -35,6 +35,7 @@ uninstall-scripts:
+ 	-$(RMDIR) $(PREFIX)/share/tbtools/scripts
+ 
+ install-completion:
++	$(INSTALL) -d $(PREFIX)/share/bash-completion/completions
+ 	$(INSTALL) -m 0644 scripts/tbtools-completion.bash $(PREFIX)/share/bash-completion/completions
+ 	$(foreach tool, $(TOOLS), $(LN) -sf tbtools-completion.bash $(PREFIX)/share/bash-completion/completions/$(tool);)
+ 
+-- 
+2.47.1
+

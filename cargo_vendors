@@ -1,9 +1,5 @@
 [source.crates-io]
 replace-with = "vendored-sources"
 
-[source."git+https://github.com/gyscos/cursive"]
-git = "https://github.com/gyscos/cursive"
-replace-with = "vendored-sources"
-
 [source.vendored-sources]
 directory = "vendor"
